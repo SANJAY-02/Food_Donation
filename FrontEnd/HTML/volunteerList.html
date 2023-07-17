@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/FrontEnd/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>VOLUNTEERS LIST</title>
+  </head>
+  <body data-page="volunteer-page">
+    <div class="root-container">
+      <div class="search-box">
+        <input
+          type="text"
+          class="form__input"
+          id="searchvolunteer"
+          onkeyup="search('searchvolunteer','volunteers',0)"
+          placeholder="Search by name"
+        />
+        <input
+          type="text"
+          class="form__input"
+          id="searchcity"
+          onkeyup="search('searchcity','volunteers',2)"
+          placeholder="Search by city"
+        />
+      </div>
+      <table class="table" id="volunteers">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+      <div>
+        <button class="form__button add-button" id="filter" type="submit">
+          GET AVAILABLE VOLUNTEERS
+        </button>
+      </div>
+      <div class="ref-button">
+        <button
+          class="form__button"
+          type="submit"
+          onclick="getVolunteersList('http://localhost:3556/api/volunteers');"
+        >
+          <i class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;REFRESH
+        </button>
+        <a href="/FrontEnd/HTML/dash.html"
+          ><button class="form__button" type="submit">BACK</button></a
+        >
+      </div>
+      <div class="dropdown">
+        <button class="form__button" onclick="showHide()">
+          <i class="fa-solid fa-user"></i>&nbsp;&nbsp;<span
+            id="username-display"
+          ></span>
+        </button>
+        <!-- <div id="list-items">
+          <button class="user_det" id="email"></button>
+          <button class="user_det" id="mob"></button>
+          <a href="/FrontEnd/HTML/index.html"
+            ><button class="user_det" type="submit">SIGNOUT</button></a
+          >
+        </div> -->
+      </div>
+    </div>
+
+    <div class="wide-container popup" id="volunteer-popup">
+      <button class="close" onclick="closePopup('#volunteer-popup')">×</button>
+      <form class="form" id="data3">
+        <h2 class="form__title">Details Updation</h2>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteerName"
+            class="form__input"
+            required
+            placeholder="Volunteer Name"
+            disabled
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteerAddress"
+            class="form__input"
+            required
+            placeholder="Volunteer Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteerCity"
+            class="form__input"
+            required
+            placeholder="Volunteer City"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteerMob"
+            class="form__input"
+            required
+            placeholder="Mobile Number"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <button
+          class="form__button"
+          type="submit"
+          onclick="closePopup('#volunteer-popup')"
+        >
+          UPDATE
+        </button>
+      </form>
+    </div>
+    <script src="/FrontEnd/JS/display.js"></script>
+    <script src="/FrontEnd/JS/volunteerList.js"></script>
+  </body>
+</html>

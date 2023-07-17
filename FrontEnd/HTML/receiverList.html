@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/FrontEnd/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>RECEIVERS LIST</title>
+  </head>
+  <body data-page="receiver-page">
+    <div class="root-container">
+      <div class="search-box">
+        <input
+          type="text"
+          class="form__input"
+          id="searchreceiver"
+          onkeyup="search('searchreceiver','receivers',0)"
+          placeholder="Search by name"
+        />
+        <input
+          type="text"
+          class="form__input"
+          id="searchcity"
+          onkeyup="search('searchcity','receivers',2)"
+          placeholder="Search by city"
+        />
+      </div>
+      <table class="table" id="receivers">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+      <div>
+        <a href="/FrontEnd/HTML/dash.html"
+          ><button class="form__button navi-button" type="submit">
+            BACK
+          </button></a
+        >
+      </div>
+      <div class="dropdown">
+        <button class="form__button" onclick="showHide()">
+          <i class="fa-solid fa-user"></i>&nbsp;&nbsp;<span
+            id="username-display"
+          ></span>
+        </button>
+        <!-- <div id="list-items">
+          <button class="user_det" id="email"></button>
+          <button class="user_det" id="mob"></button>
+          <a href="/FrontEnd/HTML/index.html"
+            ><button class="user_det" type="submit">SIGNOUT</button></a
+          >
+        </div> -->
+      </div>
+    </div>
+
+    <div class="wide-container popup" id="receive-popup">
+      <button class="close" onclick="closePopup('#receive-popup')">×</button>
+      <form class="form" id="data2">
+        <h2 class="form__title">Details Updation</h2>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiverName"
+            class="form__input"
+            required
+            placeholder="Receiver Name"
+            disabled
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiverAddr"
+            class="form__input"
+            required
+            placeholder="Receiver Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiverCity"
+            class="form__input"
+            required
+            placeholder="Receiver City"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiverMob"
+            class="form__input"
+            required
+            placeholder="Mobile Number"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="date"
+            id="receivedDate"
+            class="form__input"
+            placeholder="Date / time"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <button
+          class="form__button"
+          type="submit"
+          onclick="closePopup('#receive-popup')"
+        >
+          UPDATE
+        </button>
+      </form>
+    </div>
+    <script src="/FrontEnd/JS/display.js"></script>
+    <script src="/FrontEnd/JS/receiverList.js"></script>
+  </body>
+</html>

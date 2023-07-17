@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>FOOD MAP</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/FrontEnd/map.css" />
+    <script
+      src="http://maps.google.com/maps/api/js?key=AIzaSyC4Ajf5qMYiGWG6PdreWzp84L6gQmqjUFw"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <div
+      id="map"
+      style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden;"
+    ></div>
+    <div class="map-legend">
+      <div class="legend-item">
+        <div class="legend-icon donor"></div>
+        <span>DONOR</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-icon receiver"></div>
+        <span>RECEIVER</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-icon volunteer"></div>
+        <span>VOLUNTEER</span>
+      </div>
+    </div>
+    <div>
+      <a href="/FrontEnd/HTML/dash.html"
+        ><button class="form__button navi-button" type="submit">BACK</button></a
+      >
+    </div>
+    <script src="/FrontEnd/JS/foodMap.js"></script>
+  </body>
+</html>

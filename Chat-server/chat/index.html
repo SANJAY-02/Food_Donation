@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="chat.css" />
+    <title>CHAT PAGE</title>
+  </head>
+  <body>
+    <div>
+      <a href="http://127.0.0.1:5500/FrontEnd/HTML/dash.html"
+        ><button class="form__button navi-button" type="submit">BACK</button></a
+      >
+    </div>
+    <div class="chat-window">
+      <header class="chat-header">
+        <div class="chat-title"><h1>CHAT WINDOW</h1></div>
+        <form class="form" id="input-form">
+          <div class="form__input-group">
+            <input
+              type="text"
+              class="form__input"
+              id="input-username"
+              autofocus
+              placeholder="Enter username"
+              required
+            />
+          </div>
+          <div class="form__input-group">
+            <textarea
+              class="form__input"
+              id="input-text"
+              cols="40"
+              rows="2"
+              placeholder="Enter chat text here..."
+            ></textarea>
+          </div>
+          <div class="form__input-group">
+            <button class="form__button" type="submit">SEND</button>
+          </div>
+        </form>
+      </header>
+      <div class="chat-msg" id="chat-text"></div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

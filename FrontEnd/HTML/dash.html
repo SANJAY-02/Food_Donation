@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/FrontEnd/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>DASHBOARD PAGE</title>
+  </head>
+  <body>
+    <div>
+      <a href="/FrontEnd/HTML/index.html"
+        ><button class="form__button navi-button" type="submit">
+          SIGNOUT
+        </button></a
+      >
+    </div>
+    <div class="dropdown">
+      <button class="form__button" onclick="showHide()">
+        <i class="fa-solid fa-user"></i>&nbsp;&nbsp;<span
+          id="username-display"
+        ></span>
+      </button>
+      <!-- <div id="list-items">
+        <button class="user_det" id="email"></button>
+        <button class="user_det" id="mob"></button>
+        <a href="/FrontEnd/HTML/index.html"
+          ><button class="user_det" type="submit">SIGNOUT</button></a
+        >
+      </div> -->
+    </div>
+    <div class="title">
+      <h1>DASHBOARD</h1>
+    </div>
+    <div class="div_outer">
+      <div class="container">
+        <h1 class="dash_title">Add Donor</h1>
+        <button
+          class="dash_button"
+          type="submit"
+          onclick="openPopup('#donate-popup')"
+        >
+          Donate
+        </button>
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Add Receiver</h1>
+        <button
+          class="dash_button"
+          type="submit"
+          onclick="openPopup('#receive-popup')"
+        >
+          Receive
+        </button>
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Add Volunteer</h1>
+        <button
+          class="dash_button"
+          type="submit"
+          onclick="openPopup('#volunteer-popup')"
+        >
+          Help
+        </button>
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Food Map</h1>
+        <a href="/FrontEnd/HTML/foodMap.html"
+          ><button class="dash_button" type="submit">View</button></a
+        >
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Donors List</h1>
+        <button class="dash_button" type="submit" onclick="list('donors')">
+          View
+        </button>
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Receivers List</h1>
+        <button class="dash_button" type="submit" onclick="list('receivers')">
+          View
+        </button>
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Volunteers List</h1>
+        <button class="dash_button" type="submit" onclick="list('volunteers')">
+          View
+        </button>
+        <p class="dash_text"></p>
+      </div>
+      <div class="container">
+        <h1 class="dash_title">Chat Window</h1>
+        <a href="http://localhost:1234"
+          ><button class="dash_button" type="submit">Chat</button></a
+        >
+        <p class="dash_text"></p>
+      </div>
+    </div>
+    <div class="wide-container popup" id="donate-popup">
+      <button class="close" onclick="closePopup('#donate-popup')">×</button>
+      <form class="form" id="data1">
+        <h1 class="form__title">Donate</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="donor-name"
+            class="form__input"
+            required
+            placeholder="Donor Name"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="food-items"
+            class="form__input"
+            required
+            placeholder="Food Items"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="donor-addr"
+            class="form__input"
+            required
+            placeholder="Donor Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="donor-city"
+            class="form__input"
+            required
+            placeholder="Donor City"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="donor-mob"
+            class="form__input"
+            required
+            placeholder="Mobile Number"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="datetime-local"
+            id="donated-date"
+            class="form__input"
+            required
+            placeholder="Date / time"
+          />
+        </div>
+        <button
+          class="form__button"
+          type="button"
+          onclick="getLocation('data1','donor-name')"
+        >
+          SHARE LOCATION&nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i>
+        </button>
+        <button
+          class="form__button"
+          type="submit"
+          onclick="closePopup('#donate-popup')"
+          style="margin-top: 10px"
+        >
+          SUBMIT
+        </button>
+      </form>
+    </div>
+    <div class="wide-container popup" id="receive-popup">
+      <button class="close" onclick="closePopup('#receive-popup')">×</button>
+      <form class="form" id="data2">
+        <h1 class="form__title">Receive</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiver-name"
+            class="form__input"
+            required
+            placeholder="Receiver Name"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiver-addr"
+            class="form__input"
+            required
+            placeholder="Receiver Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiver-city"
+            class="form__input"
+            required
+            placeholder="Receiver City"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="receiver-mob"
+            class="form__input"
+            required
+            placeholder="Mobile Number"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="date"
+            id="received-date"
+            class="form__input"
+            placeholder="Date / time"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <button
+          class="form__button"
+          type="button"
+          onclick="getLocation('data2','receiver-name')"
+        >
+          SHARE LOCATION&nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i>
+        </button>
+        <button
+          class="form__button"
+          type="submit"
+          onclick="closePopup('#receive-popup')"
+          style="margin-top: 10px"
+        >
+          SUBMIT
+        </button>
+      </form>
+    </div>
+    <div class="wide-container popup" id="volunteer-popup">
+      <button class="close" onclick="closePopup('#volunteer-popup')">×</button>
+      <form class="form" id="data3">
+        <h1 class="form__title">Volunteer</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteer-name"
+            class="form__input"
+            required
+            placeholder="Volunteer Name"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteer-address"
+            class="form__input"
+            required
+            placeholder="Volunteer Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteer-city"
+            class="form__input"
+            required
+            placeholder="Volunteer City"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="volunteer-mob"
+            class="form__input"
+            required
+            placeholder="Mobile Number"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <button
+          class="form__button"
+          type="button"
+          onclick="getLocation('data3','volunteer-name')"
+        >
+          SHARE LOCATION&nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i>
+        </button>
+        <button
+          class="form__button"
+          type="submit"
+          onclick="closePopup('#volunteer-popup')"
+          style="margin-top: 10px"
+        >
+          SUBMIT
+        </button>
+      </form>
+    </div>
+    <script src="/FrontEnd/JS/dash.js"></script>
+  </body>
+</html>

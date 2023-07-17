@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <title>LOGIN PAGE</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <link rel="stylesheet" href="/FrontEnd/main.css" />
+</head>
+<body>
+  <div>
+    <a href="/FrontEnd/HTML/index.html"
+      ><button class="form__button navi-button" type="submit">HOME</button></a
+    >
+  </div>
+  <div class="wide-container">
+    <form class="form" id="login">
+      <h1 class="form__title">Login</h1>
+      <div class="form__message form__message--error"></div>
+      <div class="form__input-group">
+        <input
+          type="text"
+          class="form__input"
+          id="login-username"
+          autofocus
+          placeholder="Username"
+          required
+        />
+        <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+        <input
+          type="password"
+          class="form__input"
+          id="login-password"
+          autofocus
+          placeholder="Password"
+          required
+        />
+        <div class="form__input-group">
+          <input type="checkbox" onclick="showPswd()" />
+          <label>Show Password</label>
+        </div>
+        <div class="form__input-error-message"></div>
+      </div>
+      <button class="form__button" type="submit">Continue</button>
+      <p class="form__text">
+        <a href="#" class="form__link">Forgot your password?</a>
+      </p>
+      <p class="form__text">
+        <a class="form__link" href="/FrontEnd/HTML/signUp.html"
+          >Don't have an account? Create account</a
+        >
+      </p>
+    </form>
+  </div>
+  <script src="/FrontEnd/JS/login.js"></script>
+</body>
